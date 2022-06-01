@@ -5,6 +5,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -27,5 +28,6 @@ public class Customer {
     private Gender gender;
     private Address address;
     private List<Order> orders;
-    private LocalDateTime accountCreateTime;
+    private HashMap<String, Statistic> statistics;
+    private String accountCreateTime;
 }
