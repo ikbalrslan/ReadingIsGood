@@ -25,9 +25,9 @@ C -- Increase book count if double order exist for the same book --> C
 A -- CreateNewOrder API --> C
 A -- Update Book Stock API --> F
 D -- Get Orders Of Customer API --> A
-D -- Get Customer Statistics API (from Customers Collection) --> A
-D -- List All Orders By Date Interval API (from Orders Collection) --> A
-D -- Get Order By Id API (from Orders Collection) --> A
+D -- Get Customer Statistics API uses Customers Collection --> A
+D -- List All Orders By Date Interval API uses Orders Collection --> A
+D -- Get Order By Id API uses Orders Collection --> A
 ```
 
 ### Project Setup
