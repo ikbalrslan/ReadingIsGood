@@ -20,8 +20,14 @@ A -- RegisterBook API--> E(Create Book Item)
 E -- insert Books Collection --> D(Create Book Item)  
 B -- insert Customers Collection --> D{Database}  
 C[Create New Order] -- insert Orders Collection --> D
+F[Update Book Stock] -- Change Book Stock Status --> D
 C -- Increase book count if double order exist for the same book --> C  
 A -- CreateNewOrder API --> C
+A -- Update Book Stock API --> F
+D -- Get Orders Of Customer API --> A
+D -- Get Customer Statistics API (from Customers Collection) --> A
+D -- List All Orders By Date Interval API (from Orders Collection) --> A
+D -- Get Order By Id API (from Orders Collection) --> A
 ```
 
 ### Project Setup
@@ -141,56 +147,6 @@ docker compose down
          "stock":100
       }'
       ```
-2. Package and bag relation must be established with **Assign API**
-   ```
-   curl --location --request PUT 'http://127.0.0.1:8080/fleet/rest/packages/assign' \
-   --header 'Content-Type: application/json' \
-   --header 'Accept: application/json' \
-   --data-raw '{
-   "barcode" : "P9988000129",
-   "bagBarcode" : "C725800"
-   }'
-   ```
-3. Delivery must be done with **Make Delivery API**
-   ```
-   curl --location --request PUT 'http://127.0.0.1:8080/fleet/rest/deliveries/process' \
-   --header 'Content-Type: application/json' \
-   --header 'Accept: application/json' \
-   --data-raw '{
-   "plate": "34 TL 34",
-   "route": [
-      {
-         "deliveryPoint": 1,
-         "deliveries": [
-            {"barcode": "P7988000121"},
-            {"barcode": "P7988000122"},
-            {"barcode": "P7988000123"},
-            {"barcode": "P8988000121"},
-            {"barcode": "C725799"}
-         ]
-      },
-      {
-         "deliveryPoint": 2,
-         "deliveries": [
-            {"barcode": "P8988000123"},
-            {"barcode": "P8988000124"},
-            {"barcode": "P8988000125"},
-            {"barcode": "C725799"}
-         ]
-      },
-      {
-         "deliveryPoint": 3,
-         "deliveries": [
-            {"barcode": "P9988000126"},
-            {"barcode": "P9988000127"},
-            {"barcode": "P9988000128"},
-            {"barcode": "P9988000129"},
-            {"barcode": "P9988000130"}
-         ]
-      }
-   ]
-   }' 
-   ```
-
+      
 ## Tests
 Tests can be seen in project folder.
