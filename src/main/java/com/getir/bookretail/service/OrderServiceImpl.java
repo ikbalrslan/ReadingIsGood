@@ -132,7 +132,7 @@ public class OrderServiceImpl implements OrderService {
                 .bookId(request.getBookId())
                 .count(request.getCount())
                 .status(OrderStatus.fromIntValue(request.getStatus()))
-                .orderTime(LocalDateTime.now())
+                .orderTime(LocalDateTime.now().withNano(0))
                 .build();
     }
 
