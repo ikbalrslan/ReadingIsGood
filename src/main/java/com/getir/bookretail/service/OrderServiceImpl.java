@@ -114,10 +114,10 @@ public class OrderServiceImpl implements OrderService {
         final var customer = customerRepository.findById(customerId).get();
         final var month = LocalDateTime.now().getMonth().toString();
         final var customerStatistics = customer.getStatistics();
-        if (customerStatistics.keySet().contains("JULY")) {
+        if (customerStatistics.keySet().contains(month)) {
             customerService.updateMonthlyStatistics(customer, month, bookCount, book);
         } else {
-            customer.getStatistics().put("JULY", buildStatistics(bookCount, book));
+            customer.getStatistics().put(month, buildStatistics(bookCount, book));
             customerRepository.save(customer);
         }
     }

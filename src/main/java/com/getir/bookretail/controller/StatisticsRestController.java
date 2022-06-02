@@ -1,18 +1,17 @@
 package com.getir.bookretail.controller;
 
 import com.getir.bookretail.controller.dto.request.CustomerOrdersRestRequest;
-import com.getir.bookretail.controller.dto.request.CustomerRestRequest;
-import com.getir.bookretail.controller.dto.response.CustomerOrdersResponse;
 import com.getir.bookretail.controller.dto.response.StatisticsResponse;
-import com.getir.bookretail.model.Customer;
 import com.getir.bookretail.service.CustomerService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @Slf4j
 @RestController

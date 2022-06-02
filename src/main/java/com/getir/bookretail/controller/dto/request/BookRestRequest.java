@@ -1,7 +1,5 @@
 package com.getir.bookretail.controller.dto.request;
 
-import com.getir.bookretail.model.Address;
-import com.getir.bookretail.model.Gender;
 import lombok.*;
 
 import javax.validation.constraints.NotEmpty;

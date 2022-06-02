@@ -1,13 +1,10 @@
 package com.getir.bookretail.controller;
 
 import com.getir.bookretail.controller.dto.request.BookRestRequest;
-import com.getir.bookretail.controller.dto.request.CustomerRestRequest;
 import com.getir.bookretail.controller.dto.request.UpdateBookRestRequest;
 import com.getir.bookretail.controller.dto.response.UpdateBookResponse;
 import com.getir.bookretail.model.Book;
-import com.getir.bookretail.model.Customer;
 import com.getir.bookretail.service.BookService;
-import com.getir.bookretail.service.CustomerService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;

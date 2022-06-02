@@ -1,19 +1,16 @@
 package com.getir.bookretail.service;
 
 import com.getir.bookretail.controller.dto.request.BookRestRequest;
-import com.getir.bookretail.controller.dto.response.CustomerOrdersResponse;
 import com.getir.bookretail.controller.dto.response.UpdateBookResponse;
 import com.getir.bookretail.fault.ResourceAlreadyExistException;
 import com.getir.bookretail.fault.ResourceNotFoundException;
 import com.getir.bookretail.model.Book;
-import com.getir.bookretail.model.Order;
 import com.getir.bookretail.repository.BookRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
 import java.util.Optional;
 
 /**

@@ -1,11 +1,7 @@
 package com.getir.bookretail.controller.dto.response;
 
 import com.getir.bookretail.enums.OrderStatus;
-import com.getir.bookretail.model.Order;
 import lombok.*;
-
-import java.time.LocalDateTime;
-import java.util.List;
 
 /**
  * @author İkbal Arslan

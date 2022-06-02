@@ -1,6 +1,5 @@
 package com.getir.bookretail.controller.dto.response;
 
-import com.getir.bookretail.model.Order;
 import com.getir.bookretail.model.Statistic;
 import lombok.*;
 
