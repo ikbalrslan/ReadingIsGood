@@ -44,12 +44,14 @@ public class OrderServiceImpl implements OrderService {
             final var orderInstance = buildOrder(request);
 
             updateCustomerStatistics(request.getCustomerId(), request.getCount(), request.getBookId());
+            log.info("Customer statistics updated with customerId: {}", request.getCustomerId());
             return convertToOrderResponse(orderRepository.insert(orderInstance));
         } else { // In different order, if purchase is repeated with the same book, add itemCount to previous order
             final var itemCount = order.get().getCount();
             order.get().setCount(itemCount + request.getCount());
 
             updateCustomerStatistics(request.getCustomerId(), request.getCount(), request.getBookId());
+            log.info("Customer statistics updated with customerId: {}", request.getCustomerId());
             return convertToOrderResponse(orderRepository.save(order.get()));
         }
     }
@@ -64,6 +66,7 @@ public class OrderServiceImpl implements OrderService {
         if (orders.isEmpty()) {
             throw new ResourceNotFoundException("No orders were found within the entered date range");
         } else {
+            log.info("All orders between {} and {} is fetched", request.getStartDate(), request.getEndDate());
             return convertToResponse(orders);
         }
     }
@@ -73,6 +76,7 @@ public class OrderServiceImpl implements OrderService {
     public OrderResponse getOrderById(String orderId) {
         final var order = orderRepository.findById(orderId)
                 .orElseThrow(() -> new ResourceNotFoundException("Order not found for orderId : " + orderId));
+        log.info("Order is fetched with orderId: {}", orderId);
         return convertToOrderResponse(order);
     }
 

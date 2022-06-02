@@ -28,7 +28,9 @@ public class BookServiceImpl implements BookService {
         final var book = bookRepository.getBooksByNameAndAuthor(request.getBookName(), request.getAuthor());
         if (book.isEmpty()) {
             final var bookInstance = buildBook(request);
+            log.info("New book is inserted to records with bookName: {} and author: {}", request.getBookName(), request.getAuthor());
             return bookRepository.insert(bookInstance);
+
         } else {
             throw new ResourceAlreadyExistException("Book already exist with name : " + book.get().getBookName() + " and author: " + book.get().getAuthor());
         }

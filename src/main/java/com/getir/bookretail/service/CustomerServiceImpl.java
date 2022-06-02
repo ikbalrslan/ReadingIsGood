@@ -40,6 +40,7 @@ public class CustomerServiceImpl implements CustomerService {
         final var customer = customerRepository.getCustomerByEmail(request.getEmail());
         if (customer.isEmpty()) {
             final var customerInstance = buildCustomer(request);
+            log.info("New customer is created with email: {}", request.getEmail());
             return customerRepository.insert(customerInstance);
         } else {
             throw new ResourceAlreadyExistException("Customer already exist with email : " + customer.get().getEmail());
@@ -54,6 +55,7 @@ public class CustomerServiceImpl implements CustomerService {
         if (orders.isEmpty()) {
             throw new ResourceNotFoundException("No orders found for customerId : " + customerId);
         } else {
+            log.info("All orders of the customer is fetched with customerId: {}", customerId);
             return convertToResponse(orders);
         }
     }
@@ -64,6 +66,7 @@ public class CustomerServiceImpl implements CustomerService {
         final var customer = customerRepository.findById(customerId)
                 .orElseThrow(()-> new ResourceNotFoundException("Customer not exist with customerId :" + customerId));
 
+        log.info("Statistics of the customer is fetched with customerId: {}", customerId);
         return convertToStatistcsResponse(customer);
     }
 
@@ -109,5 +112,6 @@ public class CustomerServiceImpl implements CustomerService {
         monthlyStatistics.setTotalPurchasedAmount(monthlyTPA + book.getPrice());
         customer.getStatistics().put(month, monthlyStatistics);
         customerRepository.save(customer);
+        log.info("Monthly statistics are updated");
     }
 }
