@@ -5,6 +5,7 @@ import com.getir.bookretail.model.Gender;
 import lombok.*;
 
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 /**
  * @author İkbal Arslan
@@ -21,6 +22,8 @@ public class CustomerRestRequest {
     private String lastName;
     @NotEmpty(message = "This field is required")
     private String email;
+    @NotNull(message = "This field is required")
     private Gender gender;
+    @NotNull(message = "This field is required")
     private Address address;
 }
