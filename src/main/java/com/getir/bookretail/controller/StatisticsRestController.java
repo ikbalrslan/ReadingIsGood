@@ -1,6 +1,6 @@
 package com.getir.bookretail.controller;
 
-import com.getir.bookretail.controller.dto.request.CustomerOrdersRestRequest;
+import com.getir.bookretail.controller.dto.request.CustomerStatisticsRestRequest;
 import com.getir.bookretail.controller.dto.response.StatisticsResponse;
 import com.getir.bookretail.service.CustomerService;
 import lombok.RequiredArgsConstructor;
@@ -21,7 +21,7 @@ public class StatisticsRestController {
     private final CustomerService customerService;
 
     @GetMapping(value = "statistics")
-    public ResponseEntity<StatisticsResponse> getAllOrdersOfTheCustomer(@Validated @RequestBody CustomerOrdersRestRequest request) {
+    public ResponseEntity<StatisticsResponse> getAllOrdersOfTheCustomer(@Validated @RequestBody CustomerStatisticsRestRequest request) {
 
         final var customerId = request.getCustomerId();
         log.info("Request to get customer statistics with customerId : {} ", customerId);

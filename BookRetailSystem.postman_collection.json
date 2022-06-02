@@ -1,0 +1,334 @@
+{
+	"info": {
+		"_postman_id": "ec81b915-6d7b-4cfc-978f-daa6ba0b761e",
+		"name": "BookRetailSystem",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13199612"
+	},
+	"item": [
+		{
+			"name": "registerCustomer",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"firstName\" : \"Enes\",\n    \"lastName\" : \"Koçak\",\n    \"email\" : \"ekones@gmail.com\",\n    \"gender\" : \"MALE\",\n    \"address\" : {\n        \"country\": \"Turkey\",\n        \"city\": \"İstanbul\",\n        \"postCode\": \"34410\"\n    }\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/retail/rest/customer",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"retail",
+						"rest",
+						"customer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getOrdersOfCustomer",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"customerId\": \"62984e611f0aa76dc34c77a0\",\n    \"page\": 0,\n    \"size\": 3\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/retail/rest/customer-orders",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"retail",
+						"rest",
+						"customer-orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getCustomerStatistics",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"customerId\": \"62984e611f0aa76dc34c77a0\"\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/retail/rest/statistics",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"retail",
+						"rest",
+						"statistics"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listAllOrdersByDateInterval",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"startDate\": \"2022/05/12 01:00:00\",\n    \"endDate\": \"2022/06/03 03:50:39\"\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/retail/rest/orders",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"retail",
+						"rest",
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getOrderById",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"orderId\": \"6298558fa1dd2770ce4fe8fc\"\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/retail/rest/order",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"retail",
+						"rest",
+						"order"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "registerBook",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"bookName\": \"Açlık\",\n    \"totalPage\": 250,\n    \"author\": \"Knut Hamsun\",\n    \"genre\":\"dram\",\n    \"stock\":50,\n    \"price\":34.33\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/retail/rest/book",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"retail",
+						"rest",
+						"book"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createNewOrder",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"customerId\": \"62984e611f0aa76dc34c77a0\",\n    \"bookId\": \"629667ed87b2cd36f3e80968\",\n    \"count\":3,\n    \"status\": 2\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/retail/rest/order",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"retail",
+						"rest",
+						"order"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateBookStock",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"bookId\": \"629667ed87b2cd36f3e80968\",\n    \"stock\":100\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/retail/rest/book",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"retail",
+						"rest",
+						"book"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
