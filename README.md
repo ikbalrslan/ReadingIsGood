@@ -34,9 +34,11 @@ D -- Get Order By Id API uses Orders Collection --> A
 
 First of all, Docker should be installed to get the project up and running.
 > Docker can be installed from [here](https://docs.docker.com/desktop/mac/install/)
-* After the project is downloaded, in the project directory run the command below :
+* After the project is downloaded, in the project directory run the commands below :
 ```bash  
-docker compose up
+> mvn clean install
+> docker image build -t docker_spring_boot_mongo .
+> docker compose up
 ```  
 > After docker is up, the application will boot on the http://127.0.0.1:8080 port.
 
